@@ -1,0 +1,273 @@
+/* body/alles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+/* menubar */
+
+#menubar {
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 80px 60px;
+    grid-template-areas:
+    "box4 box2 box3"
+    "box4 box2 box3"
+    "box4 box2 box3"
+    "box7 box1 ."
+    "box7 box5 box6";
+    background-color: #1f1f1f;
+    color: #bb86fc;
+}
+
+#box1 {
+    grid-area: box1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-family: 'DotGothic16', sans-serif;
+}
+#box2 {
+    grid-area: box2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'DotGothic16', sans-serif;
+    background-color: #bb86fc;
+    color: black;
+}
+
+#box2 p{
+    padding-right: 10px;
+}
+
+#box3 {
+    grid-area: box3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'DotGothic16', sans-serif;
+}
+#box4 {
+    grid-area: box4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'DotGothic16', sans-serif;
+}
+#box5 {
+    grid-area: box5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'DotGothic16', sans-serif;
+}
+#scorebox {
+    grid-area: box6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+#scorebox p{
+    padding-right: 10px;
+}
+
+#box7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+/* buttons */
+
+#resetBTN, #start {
+    background-color: #bb86fc;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    cursor:pointer;
+    font-size: 20px;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+/* reset button */
+
+#resetBTN {
+    padding: 5px 22px;
+    cursor:pointer;
+}
+
+/* container box */
+
+#flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+/* kaarten */
+
+#allcards {
+    display: flex;
+    width: 700px;
+    height: 700px;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card {
+    width:160px;
+    height:160px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card:active {
+    transform: scale(0.98);
+    transition: transform .1s;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.cardBG, .cardShow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    backface-visibility: hidden;
+}
+
+.cardShow {
+    transform: rotateY(180deg);
+}
+
+/* popup */
+
+#popup {
+    display: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 100;
+}
+
+#popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popupscore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e5d1fd;
+    height: 450px;
+    width: 900px;
+    border-radius: 10px;
+    color: #bb86fc;
+    font-size: 20px;
+    font-family: 'DotGothic16', sans-serif;
+    letter-spacing: 1px;
+}
+
+#resetPopup{
+    background-color: #bb86fc;
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 15px;
+    width: 50%;
+    padding: 20px 20px;
+    display: block;
+    margin-top: 5px;
+    border: none;
+    outline: none;
+    cursor:pointer;
+}
+
+#saveDB {
+    background-color: #bb86fc;
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 15px;
+    padding: 10px 120px;
+    display: block;
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    cursor:pointer;
+}
+
+#popupBG {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(237, 189, 247, 0.24);
+    pointer-events: none;
+}
+
+#popupBG.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#name {
+    padding: 7px 20px;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+/* eind score */
+
+#flex_score {
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width: 900px){
+    #menubar {
+        display: grid;
+        height: 40vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px;
+        flex-direction: column;
+        grid-template-areas:
+        "box1"
+        "box4"
+        "box3"
+        "box2"
+        "box5"
+        "box6"
+        "box7";
+    }
+}
+
+@media(max-width:500px){
+    .card{
+        margin-left:50px;
+    }
+}
